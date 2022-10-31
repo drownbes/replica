@@ -403,7 +403,8 @@ function connect() {
   let root = document.createElement('div');
 
   const port = window.location.port ? window.location.port : (window.location.protocol.replace(":", "") === 'http' ? 80 : 443);
-  const ws = new WebSocket("ws://" + window.location.hostname + ":" + port);
+  const wsProtocol = window.location.protocol === 'http:' ? 'ws:' : 'wss:';
+  const ws = new WebSocket(wsProtocol + "//" + window.location.hostname + ":" + port);
 
   document.body.appendChild(root);
 
