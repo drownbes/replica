@@ -33,6 +33,9 @@ dependencies:
 - websockets
 - wai-websockets
 
+
+data-files: js/dist/client.js
+
 library:
   source-dirs: src
   exposed-modules:
