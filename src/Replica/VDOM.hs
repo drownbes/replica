@@ -47,7 +47,7 @@ fireEvent ds (x:xs) = if x < length ds
     fireEventOnNode _ _                         = \_ _ -> Nothing
 
 clientDriver :: B.ByteString
-clientDriver = $(FE.makeRelativeToProject "js/dist/client.js" >>= FE.embedFile)
+clientDriver = $(FE.embedFile "js/dist/client.js")
 
 defaultIndex :: T.Text -> HTML -> HTML
 defaultIndex title header =
