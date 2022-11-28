@@ -15,7 +15,6 @@ module Replica.VDOM
 
 import qualified Data.ByteString            as B
 import qualified Data.FileEmbed             as FE
-import           Data.Monoid                ((<>))
 import qualified Data.Text                  as T
 import qualified Data.Text.Encoding         as T
 import qualified Data.Map                   as M
@@ -48,7 +47,7 @@ fireEvent ds (x:xs) = if x < length ds
     fireEventOnNode _ _                         = \_ _ -> Nothing
 
 clientDriver :: B.ByteString
-clientDriver = $(FE.makeRelativeToProject "./js/dist/client.js" >>= FE.embedFile)
+clientDriver = $(FE.makeRelativeToProject "js/dist/client.js" >>= FE.embedFile)
 
 defaultIndex :: T.Text -> HTML -> HTML
 defaultIndex title header =
